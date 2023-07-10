@@ -1,7 +1,17 @@
-# CI/CD
+# Microservices vs. monolithic architecture & Best Practices 
+
+
+**What is Micoservice & difference from Monolithic applications?**
+
+Microservices divide a large program into multiple smaller, independent services
+Architecturally, a monolith or microservices should be modular components with clearly defined boundaries. With a monolith, the deployment is the grouping of the
+components, whereas with microservices, the individual components are deployable.
+
+**Stateful services have different challenges than stateless ones**
+- Avoid storing shared state in-memory on your servers  => sticky sessions on your LB
+- Store state using backend storage services shared by the frontend server (EFS, Firestore, Cloud SQL etc..) 
+
 ## Microservice Best Practices
-
-
 -The Twelve-Factor App is a set of best practices for building web or software-as-a-service applications. Twelve-factor design helps you to decouple components of the application, so that each component can be replaced easily or scaled up or down seamlessly
   01. Codebase :
     - One codebase tracked in revision control, many deploys
@@ -33,8 +43,10 @@
   16. Admin processes  :Run admin/management tasks as one-off processes
       - Admin processes are usually one-off processes and should be decoupled from the application
 
-  Ref :https://12factor.net
-       https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp
-       
+### Diagrams        
 
-### A third-level heading
+### Reference 
+https://12factor.net
+https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp
+https://tanzu.vmware.com/content/blog/beyond-the-twelve-factor-app
+  
