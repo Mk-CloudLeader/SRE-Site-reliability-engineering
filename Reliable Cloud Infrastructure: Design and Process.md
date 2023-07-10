@@ -58,6 +58,9 @@ representation of that resource, usually in JSON format.
   16. Admin processes  :Run admin/management tasks as one-off processes
       - Admin processes are usually one-off processes and should be decoupled from the application
 
+## Deployment strategies
+
+
 ### Diagrams        
 
 
