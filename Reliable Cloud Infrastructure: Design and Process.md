@@ -11,6 +11,21 @@ components, whereas with microservices, the individual components are deployable
 - Avoid storing shared state in-memory on your servers  => sticky sessions on your LB
 - Store state using backend storage services shared by the frontend server (EFS, Firestore, Cloud SQL etc..) 
 
+**REST API, loosely coupled applications**
+- A good microservice design is loosely coupled. Clients shouldn’t need to know too many details of services they use
+- Services communicate via HTTPS using text-based payloads
+-   Client makes **GET, POST, PUT**, or **DELETE** request
+-   Body of the request is formatted as **JSON** or **XML**
+-   Results returned as **JSON, XML**, or **HTML**
+-   **REST**(Representational State Transfer) architecture supports loose coupling
+-     Protocol independent - **HTTP** is most common
+- Service endpoints supporting REST are called **RESTful**
+- RESTful services communicate over the web using HTTP(S)
+- In REST, a client and server exchange representations of a resource. The **URI** provides access to a resource. Making a request for that resource returns a
+representation of that resource, usually in JSON format.
+- URI: Uniform Resource Identifier (endpoint)
+![image](https://github.com/Mk-CloudLeader/SRE_Lab/assets/66654978/1b5b73f9-f98a-4eee-bba7-a8fdcaa75e84)
+
 ## Microservice Best Practices
 -The Twelve-Factor App is a set of best practices for building web or software-as-a-service applications. Twelve-factor design helps you to decouple components of the application, so that each component can be replaced easily or scaled up or down seamlessly
   01. Codebase :
@@ -44,11 +59,13 @@ components, whereas with microservices, the individual components are deployable
       - Admin processes are usually one-off processes and should be decoupled from the application
 
 ### Diagrams        
-![image](https://github.com/Mk-CloudLeader/SRE_Lab/assets/66654978/1b5b73f9-f98a-4eee-bba7-a8fdcaa75e84)
+
 
 
 ### Reference 
 https://12factor.net
 https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp
 https://tanzu.vmware.com/content/blog/beyond-the-twelve-factor-app
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+
   
