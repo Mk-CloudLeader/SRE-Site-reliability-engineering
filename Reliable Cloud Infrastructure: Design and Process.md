@@ -44,6 +44,8 @@ components, whereas with microservices, the individual components are deployable
       - Admin processes are usually one-off processes and should be decoupled from the application
 
 ### Diagrams        
+![image](https://github.com/Mk-CloudLeader/SRE_Lab/assets/66654978/1b5b73f9-f98a-4eee-bba7-a8fdcaa75e84)
+
 
 ### Reference 
 https://12factor.net
