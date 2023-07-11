@@ -60,7 +60,8 @@ representation of that resource, usually in JSON format.
 
 ## Deployment strategies :Canary|Blue/green|Rolling update|Traffic splitting
 
-![image](https://github.com/Mk-CloudLeader/SRE_Lab/assets/66654978/8b5a69cd-19aa-4ce2-aa6b-a437453e5bb4)
+![image](https://github.com/Mk-CloudLeader/SRE_Lab/assets/66654978/4243e627-9df3-4385-9671-cbda1962209f)
+
 
 
 ### Diagrams        
