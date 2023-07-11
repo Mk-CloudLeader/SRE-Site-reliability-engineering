@@ -62,6 +62,25 @@ representation of that resource, usually in JSON format.
 
 ![image](https://github.com/Mk-CloudLeader/SRE_Lab/assets/66654978/4243e627-9df3-4385-9671-cbda1962209f)
 
+**Canary deployment** is a deployment strategy where a new application release is introduced alongside the current release. This typically takes the form of percentage-based **traffic splitting**. For example - 10% to the new application release and 90% to the current release. Validation and testing is performed against the application, current and new.
+### Diagrams  
+WIP
+
+**Blue/green** 
+This is not tracffic spltting, In a blue/green deployment you perform **two** identical deployments of your application. Only one version is live at a time. Traffic is routed to the **blue deployment** while the **green deployment** is created and tested. After you're finished testing, you route traffic to the new version i.e - green deployment
+After the deployment succeeds, you can either keep the **blue deployment** for a possible rollback or decommission it.
+
+**Blue/green deployment Benefits:**
+- Zero downtime
+- Instant rollback
+- Environment separation
+
+  ### Diagrams        
+WIP
+
+  **Rolling update**
+
+
 
 
 ### Diagrams        
