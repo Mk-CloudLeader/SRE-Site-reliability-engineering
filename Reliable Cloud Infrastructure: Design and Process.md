@@ -58,7 +58,9 @@ representation of that resource, usually in JSON format.
   16. Admin processes  :Run admin/management tasks as one-off processes
       - Admin processes are usually one-off processes and should be decoupled from the application
 
-## Deployment strategies
+## Deployment strategies :Canary|Blue/green|Rolling update|Traffic splitting
+
+![image](https://github.com/Mk-CloudLeader/SRE_Lab/assets/66654978/8b5a69cd-19aa-4ce2-aa6b-a437453e5bb4)
 
 
 ### Diagrams        
