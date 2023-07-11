@@ -111,13 +111,12 @@ WIP
 
 
 ### Reference 
-A|  
-B| 
-https://tanzu.vmware.com/content/blog/beyond-the-twelve-factor-app
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
-| Published  | Title/Link |
+
+| Title  | Link |
 | ------------- | ------------- |
-| Content Cell  | https://12factor.net |
-| Content Cell  | https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp  |
+| The twelve-factor app   | https://12factor.net |
+| Twelve-factor app development on Google Cloud  | https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp  |
+| Beyond the Twelve-Factor App  | https://tanzu.vmware.com/content/blog/beyond-the-twelve-factor-app  |
+| HTTP request methods | https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods  |
 
   
