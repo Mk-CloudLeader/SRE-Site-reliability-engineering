@@ -1,5 +1,21 @@
-# Microservices vs. monolithic architecture & Best Practices 
 
+# Reliable Cloud Infrastructure : Architecting, design, and process
+
+A Cloud Architect's **job** is to determine which Cloud services to use in order to most effectively implement the applications and services they are building. The **starting point ** for any software development is to figure out what the software is supposed to do, who your users are, and why this is important. You will begin with this **requirements gathering phase**.
+
+Once you understand your software's requirements and your users, you can start laying out the overall design. You need to consider your **compute** platform, **Storage** and **Database** requirements. Like do you want to deploy your apps to virtual machines, a Kubernetes cluster, or an automated platform, like App Engine. **Availability, durability, cost, and disaster recovery** are all important considerations when designing systems. 
+Before implementing a system on Cloud, you should carefully consider its **security requirements** and use the appropriate security services.
+At the **end**, you will **monitor** your app to see whether you're meeting your service objectives. These include dashboards, logs, error reporting, and tracing.
+
+- Define services
+- Microservice Design & Architecture
+- DevOps Automation
+- Choosing right storage Solutions
+- Designing Reliable Systems
+- Security
+- Maintenance & Monitoring 
+
+## Microservice Design & Architecture - Microservices vs. monolithic architecture & Best Practices 
 
 **What is Micoservice & difference from Monolithic applications?**
 
