@@ -105,8 +105,13 @@ WIP
 
  **Traffic splitting**
 
+## Designing Reliable Systems
 
-
+- Key Performance Metrics
+- Designing for Reliability
+- Activity : Designing Reliable, scalable Application
+- Activity :Disaster Planning
+  
 ### Diagrams        
 
 
