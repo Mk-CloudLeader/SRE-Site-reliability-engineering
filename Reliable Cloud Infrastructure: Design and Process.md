@@ -13,10 +13,17 @@ At the **end**, you will **monitor** your app to see whether you're meeting your
 - Choosing right storage Solutions
 - Designing Reliable Systems
 - Security
-- Maintenance & Monitoring 
+- Maintenance & Monitoring
 
 ## Microservice Design & Architecture - Microservices vs. monolithic architecture & Best Practices 
 
+- Microservices
+- Microservices Best Practices
+- Activity : Designing Microservices for your applications
+- Stateful services Vs stateless
+- REST, API
+- Activity :Designing REST API 
+  
 **What is Micoservice & difference from Monolithic applications?**
 
 Microservices divide a large program into multiple smaller, independent services
@@ -104,9 +111,10 @@ WIP
 
 
 ### Reference 
-https://12factor.net
-https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp
+A|  https://12factor.net
+B| https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp
 https://tanzu.vmware.com/content/blog/beyond-the-twelve-factor-app
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+
 
   
