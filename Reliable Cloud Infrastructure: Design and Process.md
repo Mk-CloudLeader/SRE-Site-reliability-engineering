@@ -111,10 +111,13 @@ WIP
 
 
 ### Reference 
-A|  https://12factor.net
-B| https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp
+A|  
+B| 
 https://tanzu.vmware.com/content/blog/beyond-the-twelve-factor-app
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
-
+| Published  | Title/Link |
+| ------------- | ------------- |
+| Content Cell  | https://12factor.net |
+| Content Cell  | https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp  |
 
   
