@@ -109,13 +109,25 @@ WIP
 
 
 
-## Designing Reliable Systems
+## How to Designe a Reliable Systems
+Objective : How to design services to meet requirements for availability, durability, and scalability and Implement fault-tolerant systems. How to analyze disaster scenarios and plan, implement, and test for disaster recovery.
 
 - Key Performance Metrics
 - Designing for Reliability
 - Activity : Designing Reliable, scalable Application
 - Activity :Disaster Planning
-  
+
+### Availability Vs Durability Vs Scalability
+
+**Availability** refers to the ability of a system or service to be accessible and operational, allowing users to access it and perform desired actions. It is measured in terms of uptime and downtime. A highly available system is designed to minimize downtime, ensuring that it remains accessible to users even in the face of failures or maintenance activities.
+
+| Availability                                        | Durability                                                    |      Scalability    |          
+| ---------------------------------------------------- |:------------------------------------------------------------:|  :-----------------------------------------:|   
+| Achieved with fault tolerance                        | Achieved by replicating data in multiple zones                | Monitor usage
+| Create backup systems                                | Do regular backups                                            | Use Capacity auto-scaling to add and remove servers in response to changes in load |
+| Use health checks                                    | Practice restoring from backups                               |
+|To achieve high availability, monitoring is vital.    | Software is optimized for handling NAT traffic                |
+ 
 ### Diagrams        
 
 
