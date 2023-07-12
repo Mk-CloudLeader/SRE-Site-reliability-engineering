@@ -2,6 +2,7 @@ GCP Certification : Cloud DevOps Engineer (CDE) Note
 ================================================================
 
 - [Reliable Cloud Infrastructure : Architecting, design, and process] (# Reliable Cloud Infrastructure : Architecting, design, and process)
+- [Realiable Cloud infra](# Reliable Cloud Infrastructure : Architecting, design, and process)
 - 
 # Reliable Cloud Infrastructure : Architecting, design, and process
 
