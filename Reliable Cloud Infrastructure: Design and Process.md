@@ -109,7 +109,7 @@ WIP
 
 
 
-## How to Designe a Reliable Systems
+## How to Design a Reliable Systems
 Objective : How to design services to meet requirements for availability, durability, and scalability and Implement fault-tolerant systems. How to analyze disaster scenarios and plan, implement, and test for disaster recovery.
 
 - Key Performance Metrics
