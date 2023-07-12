@@ -1,10 +1,9 @@
 GCP Certification : Cloud DevOps Engineer (CDE) Note
 ================================================================
 
-- [Reliable Cloud Infrastructure : Architecting, design, and process] (# Reliable Cloud Infrastructure : Architecting, design, and process)
-- [Realiable Cloud infra](# Reliable Cloud Infrastructure : Architecting, design, and process)
+-[Reliable](#Reliable)
 - 
-# Reliable Cloud Infrastructure : Architecting, design, and process
+## Reliable Cloud Infrastructure : Architecting, design, and process
 
 A Cloud Architect's **job** is to determine which Cloud services to use in order to most effectively implement the applications and services they are building. The **starting point ** for any software development is to figure out what the software is supposed to do, who your users are, and why this is important. You will begin with this **requirements gathering phase**.
 
