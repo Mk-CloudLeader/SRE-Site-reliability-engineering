@@ -121,12 +121,16 @@ Objective : How to design services to meet requirements for availability, durabi
 
 **Availability** refers to the ability of a system or service to be accessible and operational, allowing users to access it and perform desired actions. It is measured in terms of uptime and downtime. A highly available system is designed to minimize downtime, ensuring that it remains accessible to users even in the face of failures or maintenance activities.
 
+**Durability** is the chance of losing data because hardware or system failure. It  refers to the ability of data to persist and be retained over time, even in the event of failures or disasters. It ensures that data is not lost or corrupted. Durability is typically achieved through techniques like replication, data backups, and fault-tolerant storage systems. The goal is to make sure that data remains intact and recoverable.
+
+**Scalability**: Scalability refers to the ability of a system or service to handle an increasing workload or growing user demands. It is about the system's ability to scale up or down seamlessly to accommodate changes in demand without compromising performance or user experience. Scalability can be achieved through various means, such as horizontal scaling (adding more instances) or vertical scaling (increasing the resources of existing instances).
+
+
 | Availability                                        | Durability                                                    |      Scalability    |          
 | ---------------------------------------------------- |:------------------------------------------------------------:|  :-----------------------------------------:|   
 | Achieved with fault tolerance                        | Achieved by replicating data in multiple zones                | Monitor usage
 | Create backup systems                                | Do regular backups                                            | Use Capacity auto-scaling to add and remove servers in response to changes in load |
-| Use health checks                                    | Practice restoring from backups                               |
-|To achieve high availability, monitoring is vital.    | Software is optimized for handling NAT traffic                |
+| Use health checks                                    | Practice restoring from backups                               |   |
  
 ### Diagrams        
 
