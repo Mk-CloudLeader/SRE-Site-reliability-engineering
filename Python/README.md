@@ -13,6 +13,8 @@ The main difference between a module, package, and library is their scope. A mod
 
 **Example of module, package, and library**
 Module:: math
+
 Package:: numpy
+
 Library:: scikit-learn
 
