@@ -11,3 +11,8 @@ The main difference between a module, package, and library is their scope. A mod
 
 **Another difference between a module, package, and library** is how they are used. A module is imported into another Python file using the **import** statement. A package is installed into a Python environment using the **pip package manager**. A library can be used to provide functionality to Python programs without having to write that functionality from scratch.
 
+**Example of module, package, and library**
+Module:: math
+Package:: numpy
+Library:: scikit-learn
+
