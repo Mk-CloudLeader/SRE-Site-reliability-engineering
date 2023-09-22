@@ -16,7 +16,7 @@
 }}}
 
 # ----------------------------------------------
-# Example 
+# Example :get
 
 import requests
 
@@ -24,6 +24,15 @@ x = requests.get('https:/example.com/python/demopage.htm')
 
 print(x.text)
 
+# example :post
+
+import requests
+
+url = 'https://example.com/python/demopage.php'
+myobj = {'name': 'MKS'}
+
+x = requests.post(url, json = myobj)
+print(x.text)
 
 # Download and Install the Requests Module
 $pip install requests
