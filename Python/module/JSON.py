@@ -35,3 +35,19 @@ y = json.dumps(x)
 # the result is a JSON string:
 print(y)
 
+Example :
+    request_parameter = {
+    "records": [
+        {
+            "source": "aws:sns",
+            "node": "ec2-windows-drivers",
+            "type": "AWS Driver Notification For Latest Release",
+            "resource": "sns-mktest",
+            "severity": "4",
+            "description": "AWS EC2 driver notification",
+             
+        }]
+    }
+# convert into JSON:
+data=json.dumps(request_parameter, indent=2, default=str)
+
