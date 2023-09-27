@@ -19,3 +19,4 @@ Package:: numpy
 
 Library:: scikit-learn
 
+| https://github.com/alfonsof/aws-python-examples/blob/master/awsec2instances-capi/README.md |
