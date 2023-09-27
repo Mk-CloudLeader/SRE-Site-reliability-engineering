@@ -1,5 +1,5 @@
 # Strings in Python are enclosed in either single or double quotes
-# https://www.w3schools.com/python/python_strings.asp
+ 
 
 print("Hello")
 print('Hello')
