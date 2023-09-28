@@ -75,6 +75,12 @@ cars.sort()
 
 print(cars)
 
+l = [1, 2, 3]
+print(l.append(4))
+print(l)
+
+print(len(l))
+
 # dictdemo ----------------------------------------------------------------
 """
 Data type to store more than one value in one variable name, in terms of key value pairs
