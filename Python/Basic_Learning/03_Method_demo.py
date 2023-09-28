@@ -87,6 +87,7 @@ print("Value of global 'a' is: " + str(a))
 test_method(a)
 print("Did the value of global 'a' change? " + str(a))
 
+##
 a = 10
 
 def test_method():
