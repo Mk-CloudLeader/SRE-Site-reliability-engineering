@@ -3,7 +3,7 @@ Also called Function
 A group of code statements which can perform some specific task
 Methods are reusable and can be called when needed in the code
 """
-# Demo01
+# Demo01 ----------------------------------------------------------------------------------------------------------------------------
 
 def sum_nums(n1, n2):
     print(n1 + n2)
@@ -12,7 +12,7 @@ sum_nums(2, 8)
 
 sum_nums(3, 3)
 
-#Demo02
+#Demo02 ----------------------------------------------------------------------------------------------------------------------------
  
 def sum_nums(n1, n2):
     """
@@ -44,7 +44,7 @@ def isMetro(city):
 x = isMetro('boston')
 print(x)
 
-# #Demo03 (return) 
+# #Demo03 (return) ----------------------------------------------------------------------------------------------------------------------------
 def my_function():
   return 42
 $my_function()    # output 42
@@ -52,7 +52,7 @@ def my_function(x):
   return x * x
 $my_function(2)   # output 4 
 
-# #Demo04 
+# #Demo04 ----------------------------------------------------------------------------------------------------------------------------
 """
 Positional Parameters
 They are like optional parameters
@@ -71,7 +71,7 @@ def sum_nums(n1, n2=4):
 sum1 = sum_nums(4, n2=12)
 print(sum1)
 
- #Demo05
+ #Demo05 ----------------------------------------------------------------------------------------------------------------------------
 """
 Variable Scope
 """
@@ -99,7 +99,7 @@ print("Value of global a is: " + str(a))
 test_method()
 print("Did the value of global 'a' change? " + str(a))
 
- #Demo06
+ #Demo06  ----------------------------------------------------------------------------------------------------------------------------
 """
 Some built-in functions
 max(): It takes any number of arguments and returns the largest one.
@@ -137,7 +137,7 @@ print(type("99.9"))
 l = [1, 2, 3]
 print(type(l))
 
-#Demo7
+#Demo7 ----------------------------------------------------------------------------------------------------------------------------
 """
 Methods Exercise
 Create a method, which takes the state and gross income as the arguments and returns the net income after deducting tax based on the state.
