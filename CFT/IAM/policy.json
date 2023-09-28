@@ -1,0 +1,68 @@
+// create a inline policy and assign to the existing user 
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+     "username": {
+        "Type": "String",
+        "Default": "s3access",
+        "Description": "username "
+    }
+},
+
+  "Resources": {
+    "MyCloudpolicy": {
+    "Type": "AWS::IAM::Policy",
+    "Properties": {
+        "PolicyName": "CFNUsers",
+        "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "VisualEditor0",
+                    "Effect": "Allow",
+                    "Action": [
+                        "cloudformation:Describe*",
+                        "cloudformation:List*",
+                        "cloudformation:Get*"
+                    ],
+                    "Resource": "*"
+                },
+                {
+                    "Sid": "VisualEditor1",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ec2:AttachVolume",
+                        "ec2:ModifyVolume",
+                        "ec2:DescribeInstances",
+                        "ec2:CreateTags",
+                        "ec2:RunInstances",
+                        "ec2:DescribeSecurityGroups",
+                        "ec2:CreateVolume",
+                        "sns:Publish",
+                        "ec2:DescribeVolumes",
+                        "ec2:ModifyInstanceAttribute",
+                        "ec2:DescribeSubnets",
+                        "ec2:AssociateIamInstanceProfile",
+                        "ec2:StartInstances",
+                        "ec2:StopInstances",
+                        "ec2:DescribeTags",
+                        "ec2:DescribeInstanceAttribute",
+                        "ec2:DescribeInstanceStatus"
+                    ],
+                    "Resource": "*"
+                
+                   }
+            ]
+        },
+        
+
+        "Users": [
+            {
+                "Ref": "username"
+            }
+        ]
+    }
+}
+}
+}
+
