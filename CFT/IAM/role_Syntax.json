@@ -1,0 +1,18 @@
+
+{
+  "Type" : "AWS::IAM::Role",
+  "Properties" : {
+      "AssumeRolePolicyDocument" : Json,                 # The trust policy that is associated with this role.
+      "Description" : String,
+      "ManagedPolicyArns" : [ String, ... ],             # A list of ARNs of managed policies that you want to attach to the role
+      "MaxSessionDuration" : Integer,
+      "Path" : String,                                    # This parameter is optional. If it is not included, it defaults to a slash (/)
+      "PermissionsBoundary" : String,                    #PermissionsBoundary
+      "Policies" : [ Policy, ... ],                      # Adds or updates an inline policy document that is embedded in the specified IAM role.
+      "RoleName" : String,
+      "Tags" : [ Tag, ... ]
+    }
+}
+
+# "ManagedPolicyArns vs Policies" 
+- Managed and for inline 
