@@ -1,0 +1,68 @@
+/// EventBridge Rule for Logging to CloudWatch Logs ///
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "EventBridge Rule Test",
+  "Resources": {
+    "CFNLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "RetentionInDays": 3,
+        "LogGroupName": "/aws/events/eventbridgeLog"
+      }
+    },
+    "MyALLRule": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "Description": "Collects everything",
+        "EventPattern": {
+          "account": [
+            "123456789"
+          ]
+        },
+        "RoleArn": "EBAllRole.Arn",
+        "Targets": [
+          {
+            "Id": "CloudwatchLogsTarget",
+            "Arn": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${CFNLogGroup}"
+          }
+        ]
+      }
+    },
+    "EBAllRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "events.amazonaws.com"
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "AllowAllEventsToBeLogged",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": {
+                "Effect": "Allow",
+                "Action": [
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents"
+                ],
+                "Resource": "*"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
