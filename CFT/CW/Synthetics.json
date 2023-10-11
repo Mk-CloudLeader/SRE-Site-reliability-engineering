@@ -1,0 +1,120 @@
+Parameters:
+  CanaryName:
+    Type: String
+    Default: my-canary
+    MaxLength: 21
+
+Resources:
+  CloudWatchSyntheticsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName:
+        Fn::Sub: CloudWatchSyntheticsRole-${CanaryName}-${AWS::Region}
+      Description: CloudWatch Synthetics lambda execution role for running canaries
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+            Condition: {}
+
+  RolePermissions:
+    Type: AWS::IAM::Policy
+    Properties:
+      Roles:
+        - Ref: CloudWatchSyntheticsRole
+      PolicyName:
+        Fn::Sub: CloudWatchSyntheticsPolicy-${CanaryName}-${AWS::Region}
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:PutObject
+              - s3:GetBucketLocation
+            Resource:
+              - Fn::Sub: arn:aws:s3:::${ResultsBucket}/*
+          - Effect: Allow
+            Action:
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+              - logs:CreateLogGroup
+            Resource:
+              - Fn::Sub: arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/cwsyn-test-*
+          - Effect: Allow
+            Action:
+              - s3:ListAllMyBuckets
+            Resource: '*'
+          - Effect: Allow
+            Resource: '*'
+            Action: cloudwatch:PutMetricData
+            Condition:
+              StringEquals:
+                cloudwatch:namespace: CloudWatchSynthetics
+
+  ResultsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName:
+        Fn::Sub: cw-syn-results-${AWS::AccountId}-${AWS::Region}
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  Canary:
+    Type: AWS::Synthetics::Canary
+    Properties: 
+      Name:
+        Fn::Sub: ${CanaryName}
+      Code:
+        Handler: exports.handler
+        Script: |
+          const https = require('https')
+          let url = "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html"
+          
+          exports.handler = async function(event) {
+            const promise = new Promise(function(resolve, reject) {
+              https.get(url, (res) => {
+                  resolve(res.statusCode)
+                }).on('error', (e) => {
+                  reject(Error(e))
+                })
+              })
+            return promise
+          }
+      ExecutionRoleArn:
+        Fn::GetAtt:
+          - CloudWatchSyntheticsRole
+          - Arn
+      RuntimeVersion: syn-1.0
+      RunConfig:
+        TimeoutInSeconds: 60
+      ArtifactS3Location:
+        Fn::Join:
+          - ''
+          - - s3://
+            - Ref: ResultsBucket
+      StartCanaryAfterCreation: True
+      Schedule:
+        Expression: rate(1 minute) # every minute
+        DurationInSeconds: 0 # run indefinitely
+      SuccessRetentionPeriod: 90
+      FailureRetentionPeriod: 180
+
+Outputs:
+  CanaryRoleArn:
+    Value:
+      Fn::GetAtt:
+        - CloudWatchSyntheticsRole
+        - Arn
+  ResultsBucketArn:
+    Value:
+      Fn::GetAtt:
+        - ResultsBucket
+        - Arn
+  ResultsBucketName:
+    Value:
+      Ref: ResultsBucket
