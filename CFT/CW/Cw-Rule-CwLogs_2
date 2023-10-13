@@ -1,0 +1,58 @@
+/// EventBridge Rule for Logging to CloudWatch Logs ///
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "AWS CloudTrail API Activity Alarm Template for CloudWatch Logs",
+  
+ 
+  "Resources": {
+ 
+
+ 
+    "EventRuleEC2CloudTrail": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "Description": "Redirect CloudTrail EC2 logs into CloudwatchLogGroup",
+        "State": "ENABLED",
+        "EventBusName": "default",
+        "Name": "EventRuleEC2CloudTrail",
+        "EventPattern": {
+          "source": [
+              "aws.ec2"
+          ],
+ 
+          "detail-type": [
+              "AWS API Call via CloudTrail"
+          ],
+          "detail": {
+              "eventSource": [
+                  "ec2.amazonaws.com"
+              ],
+              "eventName": [
+                  "StartInstances",
+                  "StopInstances"
+              ]
+          }
+
+      },
+      "Targets": [
+          {
+              "Arn": {
+                  "Fn::GetAtt":[
+                    "CWLogGroup",
+                    "Arn"
+                  ]
+              },
+              "Id": "EC2"
+          }
+      ]
+  }
+},  
+    "CWLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName" : "EC2-DC",
+        "RetentionInDays": 7
+}
+}
+}
+}
