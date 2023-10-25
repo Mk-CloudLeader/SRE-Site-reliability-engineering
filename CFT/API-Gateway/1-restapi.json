@@ -1,0 +1,31 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "REST API with a Lambda proxy integration for ITOM integration",
+  "Parameters": {
+    "apiName": {
+      "Type": "String",
+      "Default": "myapi"
+    },
+    "type": {
+      "Type": "String",
+      "Default":"REGIONAL"
+    }
+  },
+  "Resources": {
+    "MyRestApi": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "EndpointConfiguration": {
+          "Types": [
+            {
+              "Ref": "type"
+            }
+          ]
+        },
+        "Name": {
+          "Ref": "apiName"
+        }
+      }
+    }
+  }
+}
