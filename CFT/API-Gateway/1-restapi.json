@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "REST API with a Lambda proxy integration for ITOM integration",
+  "Description": "REST API with a Lambda proxy integration",
   "Parameters": {
     "apiName": {
       "Type": "String",
