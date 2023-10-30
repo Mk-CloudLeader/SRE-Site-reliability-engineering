@@ -1,0 +1,82 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "CloudFormation template for creating a REST API with a POST method and Lambda integration.",
+  "Resources": {
+    "MyRestApi": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Name": "MyRestApi",
+        "EndpointConfiguration": {
+          "Types": [ "REGIONAL"]
+        }
+      }
+    },
+    "MyLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "index.handler",
+        "Role": "arn:aws:iam::${AWS::AccountId}:role/lambdaexecutionrole-MK",
+        "FunctionName": "MyLambdaFunction",
+        "Code": {
+          "S3Bucket": "apigw-poc",
+          "S3Key": "IncidentCreation.zip"
+        },
+        "Runtime": "python3.11"
+      }
+    },
+
+    "MyApiMethod": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "ResourceId": { "Fn::GetAtt": ["MyRestApi", "RootResourceId"] },
+        "RestApiId": { "Ref": "MyRestApi" },
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS",
+          "Uri": {
+            "Fn::Sub": [
+              "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${FunctionArn}/invocations",
+              { "FunctionArn": { "Fn::GetAtt": ["MyLambdaFunction", "Arn"] } }
+            ]
+          }
+        },
+        "MethodResponses": [
+          {
+            "StatusCode": 200,
+            "ResponseModels": { "application/json": "Empty" }
+          }
+        ],
+        "RequestParameters": {
+          "method.request.header.Content-Type": true
+        }
+      }
+    },
+    "MyApiDeployment": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "DependsOn": "MyApiMethod",
+      "Properties": {
+        "RestApiId": { "Ref": "MyRestApi" },
+        "StageName": "Prod"
+      }
+    },
+    "MyApiInvokePermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": { "Fn::GetAtt": ["MyLambdaFunction", "Arn"] },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Sub": "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${MyRestApi}/*/POST/myresource"
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "APIInvokeURL": {
+      "Description": "URL for the POST method in the API Gateway",
+      "Value": { "Fn::Sub": "https://${MyRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/myresource" }
+    }
+  }
+ }
